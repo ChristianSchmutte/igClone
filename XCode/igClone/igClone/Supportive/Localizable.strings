@@ -1,17 +1,12 @@
-/* 
-  Strings.strings
-  igClone
-
-  Created by Christian Schmutte on 29.03.20.
-  Copyright © 2020 Christian Schmutte. All rights reserved.
-*/
-
-"SU_title" = "Sign UP";
 "username" = "Username";
 "password" = "Password";
 "email" = "Email (optional)";
 "SU_signUp" = "Sign Up";
 "alert_title_attention" = "Attention";
+"alert_message_attention" = "";
 "alert_button_ok" = "OK";
 "LI_title" = "Log in";
 "LI_button_title" = "Log in!";
+"LI_alert_title" = "Couldn't Log in";
+"LI_error_empty_message" = "Please provide a username and a password";
+"SU_title" = "Sign UP";

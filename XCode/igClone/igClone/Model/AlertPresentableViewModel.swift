@@ -8,6 +8,9 @@
 
 import Foundation
 
-protocol AlertPresentableViewModel: ObservableObject {
-    var alertModel: AlertModel { get set }
+class AlertPresentableViewModel: BaseResponseViewModel {
+    @Published var alertModel: AlertModel = AlertModel() {
+        willSet { self.objectWillChange.send() }
+    }
+    
 }

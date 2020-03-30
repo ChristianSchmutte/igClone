@@ -130,6 +130,122 @@
             "deprecationReason": null
           },
           {
+            "name": "session",
+            "description": "The session query can be used to get an object of the Session class by its id.",
+            "args": [
+              {
+                "name": "id",
+                "description": "This is the object id.",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "options",
+                "description": "The read options for the query to be executed.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ReadOptionsInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Session",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sessions",
+            "description": "The sessions query can be used to find objects of the Session class.",
+            "args": [
+              {
+                "name": "where",
+                "description": "These are the conditions that the objects need to match in order to be found.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SessionWhereInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "order",
+                "description": "The fields to be used when sorting the data fetched.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SessionOrder",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "skip",
+                "description": "This is the number of objects that must be skipped to return.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "limit",
+                "description": "This is the limit number of objects that must be returned.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "options",
+                "description": "The read options for the query to be executed.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ReadOptionsInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "SessionFindResult",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "user",
             "description": "The user query can be used to get an object of the User class by its id.",
             "args": [
@@ -863,6 +979,11 @@
           {
             "kind": "OBJECT",
             "name": "User",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "Session",
             "ofType": null
           },
           {
@@ -2325,6 +2446,619 @@
       },
       {
         "kind": "OBJECT",
+        "name": "Session",
+        "description": "The Session object type is used in operations that involve outputting objects of Session class.",
+        "fields": [
+          {
+            "name": "id",
+            "description": "This is the object id.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": "This is the date in which the object was created.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "updatedAt",
+            "description": "This is the date in which the object was las updated.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ACL",
+            "description": "This is the access control list of the object.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Object",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "restricted",
+            "description": "This is the object restricted.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "user",
+            "description": "This is the object user.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "User",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "installationId",
+            "description": "This is the object installationId.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sessionToken",
+            "description": "This is the object sessionToken.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt",
+            "description": "This is the object expiresAt.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Date",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdWith",
+            "description": "This is the object createdWith.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Object",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "ParseObject",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "SessionWhereInput",
+        "description": "The SessionWhereInput input type is used in operations that involve filtering objects of Session class.",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "createdAt",
+            "description": "This is the object createdAt.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "DateWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "updatedAt",
+            "description": "This is the object updatedAt.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "DateWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "ACL",
+            "description": "This is the object ACL.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ObjectWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "restricted",
+            "description": "This is the object restricted.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BooleanWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "user",
+            "description": "This is the object user.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "UserPointerWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "installationId",
+            "description": "This is the object installationId.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "sessionToken",
+            "description": "This is the object sessionToken.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "expiresAt",
+            "description": "This is the object expiresAt.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "DateWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "createdWith",
+            "description": "This is the object createdWith.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ObjectWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "id",
+            "description": "This is the object id.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "OR",
+            "description": "This is the OR operator to compound constraints.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SessionWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "AND",
+            "description": "This is the AND operator to compound constraints.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SessionWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "NOR",
+            "description": "This is the NOR operator to compound constraints.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SessionWhereInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "UserPointerWhereInput",
+        "description": "The UserPointerWhereInput input type is used in operations that involve filtering objects by a pointer field to User class.",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "equalTo",
+            "description": "This is the equalTo operator to specify a constraint to select the objects\nwhere the value of a field equals to a specified value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "notEqualTo",
+            "description": "This is the notEqualTo operator to specify a constraint to select the objects\nwhere the value of a field do not equal to a specified value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "in",
+            "description": "This is the in operator to specify a constraint to select the objects where\nthe value of a field equals any value in the specified array.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "notIn",
+            "description": "This is the notIn operator to specify a constraint to select the objects where\nthe value of a field do not equal any value in the specified array.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "exists",
+            "description": "This is the exists operator to specify a constraint to select the objects where a field exists (or do not exist).",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "inQueryKey",
+            "description": "This is the inQueryKey operator to specify a constraint to select the objects\nwhere a field equals to a key in the result of a different query.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "SelectInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "notInQueryKey",
+            "description": "This is the notInQueryKey operator to specify a constraint to select the\nobjects where a field do not equal to a key in the result of a different query.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "SelectInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "inQuery",
+            "description": "This is the inQuery operator to specify a constraint to select the objects\nwhere a field equals to any of the ids in the result of a different query.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "SubqueryInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "notInQuery",
+            "description": "This is the notInQuery operator to specify a constraint to select the objects\nwhere a field do not equal to any of the ids in the result of a different query.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "SubqueryInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "SessionOrder",
+        "description": "The SessionOrder input type is used when sorting objects of the Session class.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "createdAt_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "updatedAt_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "updatedAt_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ACL_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ACL_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "restricted_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "restricted_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "user_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "user_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "installationId_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "installationId_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sessionToken_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sessionToken_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdWith_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdWith_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "SessionFindResult",
+        "description": "The SessionFindResult object type is used in the Session find query to return the data of the matched objects.",
+        "fields": [
+          {
+            "name": "results",
+            "description": "This is the objects returned by the query",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Session",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "count",
+            "description": "This is the total matched objecs count that is returned when the count flag is set.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
         "name": "B4aVehicle",
         "description": "The B4aVehicle object type is used in operations that involve outputting objects of B4aVehicle class.",
         "fields": [
@@ -3246,6 +3980,105 @@
             "deprecationReason": null
           },
           {
+            "name": "createSession",
+            "description": "The createSession mutation can be used to create a new object of the Session class.",
+            "args": [
+              {
+                "name": "fields",
+                "description": "These are the fields used to create the object.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "CreateSessionFieldsInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Session",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "updateSession",
+            "description": "The updateSession mutation can be used to update an object of the Session class.",
+            "args": [
+              {
+                "name": "id",
+                "description": "This is the object id.",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "fields",
+                "description": "These are the fields used to update the object.",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "UpdateSessionFieldsInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Session",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "deleteSession",
+            "description": "The deleteSession mutation can be used to delete an object of the Session class.",
+            "args": [
+              {
+                "name": "id",
+                "description": "This is the object id.",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Session",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createUser",
             "description": "The createUser mutation can be used to create a new object of the User class.",
             "args": [
@@ -3957,6 +4790,199 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "RoleRelationInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "CreateSessionFieldsInput",
+        "description": "The CreateSessionFieldsInput input type is used in operations that involve creation of objects in the Session class.",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "ACL",
+            "description": "This is the access control list of the object.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Object",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "restricted",
+            "description": "This is the object restricted.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "user",
+            "description": "This is the object user.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "UserPointerInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "installationId",
+            "description": "This is the object installationId.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "sessionToken",
+            "description": "This is the object sessionToken.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "expiresAt",
+            "description": "This is the object expiresAt.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Date",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "createdWith",
+            "description": "This is the object createdWith.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Object",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "UserPointerInput",
+        "description": "Allow to link OR add and link an object of the User class.",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "link",
+            "description": "Link an existing object from User class.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "createAndLink",
+            "description": "Create and link an object from User class.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "CreateUserFieldsInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "UpdateSessionFieldsInput",
+        "description": "The UpdateSessionFieldsInput input type is used in operations that involve creation of objects in the Session class.",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "ACL",
+            "description": "This is the access control list of the object.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Object",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "restricted",
+            "description": "This is the object restricted.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "user",
+            "description": "This is the object user.",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "UserPointerInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "installationId",
+            "description": "This is the object installationId.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "sessionToken",
+            "description": "This is the object sessionToken.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "expiresAt",
+            "description": "This is the object expiresAt.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Date",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "createdWith",
+            "description": "This is the object createdWith.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Object",
               "ofType": null
             },
             "defaultValue": null
@@ -5707,6 +6733,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "Session",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "User",
             "ofType": null
           },
@@ -7441,13 +8472,13 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "UserPointerInput",
-        "description": "Allow to link OR add and link an object of the User class.",
+        "name": "SessionPointerInput",
+        "description": "Allow to link OR add and link an object of the Session class.",
         "fields": null,
         "inputFields": [
           {
             "name": "link",
-            "description": "Link an existing object from User class.",
+            "description": "Link an existing object from Session class.",
             "type": {
               "kind": "SCALAR",
               "name": "ID",
@@ -7457,10 +8488,10 @@
           },
           {
             "name": "createAndLink",
-            "description": "Create and link an object from User class.",
+            "description": "Create and link an object from Session class.",
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "CreateUserFieldsInput",
+              "name": "CreateSessionFieldsInput",
               "ofType": null
             },
             "defaultValue": null
@@ -7472,8 +8503,8 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "UserPointerWhereInput",
-        "description": "The UserPointerWhereInput input type is used in operations that involve filtering objects by a pointer field to User class.",
+        "name": "SessionPointerWhereInput",
+        "description": "The SessionPointerWhereInput input type is used in operations that involve\nfiltering objects by a pointer field to Session class.",
         "fields": null,
         "inputFields": [
           {
@@ -7579,6 +8610,71 @@
               "kind": "INPUT_OBJECT",
               "name": "SubqueryInput",
               "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "SessionRelationInput",
+        "description": "Allow to add, remove, createAndAdd objects of the Session class into a relation field.",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "add",
+            "description": "Add an existing object from the Session class into the relation.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "remove",
+            "description": "Remove an existing object from the Session class out of the relation.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "createAndAdd",
+            "description": "Create and add an object of the Session class into the relation.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "CreateSessionFieldsInput",
+                  "ofType": null
+                }
+              }
             },
             "defaultValue": null
           }

@@ -11,9 +11,9 @@ import SwiftUI
 struct LoginView: View {
     @State var username: String = ""
     @State var password: String = ""
+    @ObservedObject var model = LogInViewModel()
     
     
-
     var body: some View {
        VStack{
             Image("ig_clone")
@@ -42,9 +42,14 @@ struct LoginView: View {
            Button(action: {
                 if (self.password.count == 0 || self.username.count == 0){
                     
+                    self.model.alertModel = AlertModel(
+                        title: NSLocalizedString("LI_alert_title", comment: ""),
+                        message: NSLocalizedString("LI_error_empty_message", comment: ""),
+                        button: NSLocalizedString("alert_button_ok", comment: ""),
+                        show: true)
                     
                 } else {
-                    
+                    self.model.logIn(username: self.username, password: self.password)
                 }
            }){
                Text(NSLocalizedString("LI_button_title", comment: ""))
@@ -56,6 +61,9 @@ struct LoginView: View {
                 .cornerRadius(15.0)
            }
        }.padding()
+        .alert(isPresented: self.$model.alertModel.show ) { () -> Alert in
+                Alert(title: Text(self.model.alertModel.title), message: Text(self.model.alertModel.message), dismissButton: .default(Text(self.model.alertModel.button)))
+        }
     }
 }
 

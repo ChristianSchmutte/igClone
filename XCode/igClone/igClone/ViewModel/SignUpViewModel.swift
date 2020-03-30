@@ -13,9 +13,8 @@ protocol Updatable {
 }
 
 class SignUpViewModel: AlertPresentableViewModel {
-    @Published var alertModel: AlertModel = AlertModel(title: "", message: "", show: false, button: "")
     
-    var response: Response = Response(false, "")
+
     
     
     func signUp(username: String, password: String, email: String ){
@@ -36,13 +35,13 @@ class SignUpViewModel: AlertPresentableViewModel {
                            else if let errors = graphQLResult.errors {
                                // GraphQL errors
                             self.response = Response(false, errors.description)
-                            self.alertModel = AlertModel(title: NSLocalizedString("alert_title_attention", comment: ""), message: errors.description, show: true, button: NSLocalizedString("alert_button_ok", comment: ""))
+                            self.alertModel = AlertModel(title: NSLocalizedString("alert_title_attention", comment: ""), message: errors.description, button: NSLocalizedString("alert_button_ok", comment: ""), show: true)
                            }
                        // In case of failure, we present that message
                        case .failure(let error):
                          // Network or response format errors
                         print(error.localizedDescription)
-                        self.alertModel = AlertModel(title: NSLocalizedString("alert_title_attention", comment: ""), message: error.localizedDescription, show: true, button: NSLocalizedString("alert_button_ok", comment: ""))
+                        self.alertModel = AlertModel(title: NSLocalizedString("alert_title_attention", comment: ""), message: error.localizedDescription, button: NSLocalizedString("alert_button_ok", comment: ""), show: true)
                    }
                }
     }

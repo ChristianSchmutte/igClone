@@ -6,10 +6,13 @@ mutation signUpUser($username: String!, $password: String!, $email: String) {
     }
 }
 mutation logInUser($username: String!, $password: String!){
-    logIn(username: $username, password: $password){
+    logIn(fields: {
+      username: $username, password: $password
+    }){
       sessionToken
     }
 }
+
 mutation logOutUser{
     logOut{id}
 }
