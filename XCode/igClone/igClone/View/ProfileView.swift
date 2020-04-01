@@ -16,7 +16,7 @@ struct ProfileView: View {
             VStack{
                 HStack {
                     Spacer()
-                    Text(NSLocalizedString("username", comment: ""))
+                    Text("Username")
                         .foregroundColor(Colors.lightBlueColor)
                         .fontWeight(.semibold)
                         .padding(.leading, 10)
@@ -53,7 +53,7 @@ struct ProfileView: View {
                             .foregroundColor(Colors.lightBlueColor)
                         .fontWeight(.bold)
                         .fixedSize(horizontal: true, vertical: true)
-                        Text("Publications")
+                        Text(NSLocalizedString("publications", comment: ""))
                         .font(.system(size: 13))
                             .foregroundColor(Colors.lightBlueColor)
                         .fixedSize(horizontal: true, vertical: true)
@@ -66,7 +66,7 @@ struct ProfileView: View {
                         .fontWeight(.bold)
                             .lineLimit(nil)
                             .fixedSize(horizontal: true, vertical: true)
-                        Text("Followers")
+                        Text(NSLocalizedString("followers", comment: ""))
                         .font(.system(size: 13))
                             .foregroundColor(Colors.lightBlueColor)
                         .lineLimit(nil)
@@ -79,7 +79,7 @@ struct ProfileView: View {
                             .foregroundColor(Colors.lightBlueColor)
                         .fontWeight(.bold)
                         
-                        Text("Following")
+                        Text(NSLocalizedString("following", comment: ""))
                         .font(.system(size: 13))
                             .foregroundColor(Colors.lightBlueColor)
                     }
@@ -88,7 +88,7 @@ struct ProfileView: View {
                 .padding(.leading)
                 
                  Button(action: {}){
-                    Text("Edit Profile")
+                    Text(NSLocalizedString("edit_profile_button", comment: ""))
                     .fontWeight(.bold)
                         .foregroundColor(Colors.lightBlueColor)
                 }.frame(width: 400)
@@ -99,7 +99,14 @@ struct ProfileView: View {
                 TimeLineView(images: [
                 "ig_clone","ig_clone","ig_clone",
                 "ig_clone"]).padding(.leading, 10)
+                
+                Divider()
+                
+                BottomView()
+                .padding(12)
             }.padding(.trailing, 20)
+            
+            
         }
     }
 }

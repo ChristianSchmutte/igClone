@@ -14,7 +14,9 @@ struct ContentView: View {
     var body: some View {
 //             SignUpView()
 //            LoginView()
-        ProfileView()
+//        ProfileView()
+//        TimeLineDetailView(model: PostViewModel(post: dummyPost))
+        HomeView()
         }
 }
 

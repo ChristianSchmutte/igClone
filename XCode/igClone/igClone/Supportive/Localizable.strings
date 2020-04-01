@@ -10,3 +10,7 @@
 "LI_alert_title" = "Couldn't Log in";
 "LI_error_empty_message" = "Please provide a username and a password";
 "SU_title" = "Sign UP";
+"publications" = "Publications";
+"followers" = "Followers";
+"following" = "Following";
+"edit_profile_button" = "Edit Profile";
